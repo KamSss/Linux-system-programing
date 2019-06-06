@@ -1,0 +1,23 @@
+#include<iostream>  
+#include<string>
+#include<unistd.h>
+
+//#define RED "\e[0;31m"
+//#define YELLOW "\e[1;33m"
+//#define WHITE "\e[1;37m"
+
+using namespace std;
+
+int main(){
+	string str = "#";
+	int i = 0;
+	string str1 = "%";
+	while (i < 100){
+		i++;
+		str.push_back('#');
+		cout << str << ' ' << i << str1 << endl;
+		sleep(1);
+		system("cls");
+	}
+	return 0;
+}

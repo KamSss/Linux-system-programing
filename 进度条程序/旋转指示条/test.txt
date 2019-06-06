@@ -1,0 +1,16 @@
+ 1 #include<stdio.h>
+  2 #include<unistd.h>
+  3 
+  4 int main(){
+  5   char str[5] = "|/-\\";
+  6   int i = 0;
+  7   for (i = 0; i < 5; i++){
+  8     printf("%c\r", str[i]);
+  9     fflush(stdout);
+ 10     if (i == 3){                                                                                                                                                                                                     
+ 11       i = 0;
+ 12     }
+ 13     sleep(1);
+ 14   }
+ 15   return 0;
+ 16 }
