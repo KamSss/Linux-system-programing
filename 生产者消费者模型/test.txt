@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<vector>//交易场所用别的数据结构也可以
+#include<unistd.h>
+#include<pthread.h>
+
+std::vector<int> data;
+
+//生产者的入口函数
+void* Product(void* arg){
+    (void*)arg;
+    while(1){
+        data.push_back(++count);
+        usleep(789789);
+    }
+    return NULL;
+}
+
+//消费者的入口函数
+void* Consume(void* arg){
+    (void*)arg;
+    //负责把交易场所中的数据取出来
+    while(1){
+        if(!data.empty()){
+        }
+        //每次获取最后一个元素
+        int ret = data.back();
+        data.pop_back();
+        printf("ret = %d\n",ret);    
+        usleep(123123);
+    }
+}    
+    
+int main(){
+    pthread_t tid1,tid2;
+    pthread_create(&tid1,NULL,Product,NULL);
+    pthread_create(&tid2,NULL,Product,NULL);
+    pthread_join(tid1,NULL);
+    pthread_join(tid2,NULL);
+    
+    return 0;
+}
